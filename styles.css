@@ -1,0 +1,91 @@
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+h1, h2 {
+    font-weight: bold;
+    color: lime;
+    text-shadow: 0 0 10px lime;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid lime;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: black;
+    color: lime;
+    box-sizing: border-box;
+    text-shadow: 0 0 10px lime;
+}
+
+button {
+    background-color: lime;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ff00; /* Verde más brillante */
+}
+
+.matrix-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+@keyframes matrix-fall {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.matrix-column {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 18px;
+    color: lime;
+    text-shadow: 0 0 10px lime;
+    animation: matrix-fall linear infinite;
+}
+
+.matrix-column span {
+    display: inline-block;
+    animation-delay: calc(-1s * var(--i));
+}
